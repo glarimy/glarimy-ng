@@ -1,0 +1,41 @@
+<div>
+  <h1>
+    {{ title }}!
+  </h1>
+  <hr/>
+  <h2>All Projects</h2>
+  <div>
+    <button (click)='showForm()'>Report New Defect</button>
+    <button>Export to Spreadsheet</button>
+    <span id='search'>Search <input placeholder='defect description'><button>Go!</button></span>
+  </div>
+  <div id='addForm' *ngIf='showFormVisible'>
+    Description <input size="100" [(ngModel)]='defect.description'/> 
+    Priority <input [(ngModel)]='defect.priority' />
+    <button (click)='add()'>Add</button>
+    <button (click)='hideForm()'>Close</button>
+  </div>
+  <table width='100%'>
+    <tr>
+    <th></th>
+    <th (click)='sort("id")'>Defect ID</th>
+    <th (click)='sort("status")'>Status</th>
+    <th (click)='sort("priority")'>Priority</th>
+    <th>Description</th>
+    <th>Resolution</th>
+    <th>Files Modified</th>
+    </tr>
+    <tr *ngFor='let defect of defects'>
+      <td><input name='d' type='radio'></td>
+      <td>{{defect.id}}</td>
+      <td>{{defect.status}}</td>
+      <td>{{defect.priority}}</td>
+      <td title='{{defect.description}}'>{{defect.description.substr(0, 10)}}...</td>
+      <td>{{defect.notes}}</td>
+      <td><span *ngFor='let file of defect.files'>
+        {{file}}
+      </span>
+      </td>
+    </tr>
+  </table>
+</div>

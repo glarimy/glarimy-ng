@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <td>First Number</td>
+    <td><input [(ngModel)]='first' /></td>
+  </tr>
+  <tr>
+    <td>Second Number</td>
+    <td><input [(ngModel)]='second'/></td>
+  </tr>
+    <tr>
+      <td colspan='2'>
+        <button (click)='sum()'>Add</button>
+        <button (click)='multiply()'>Multiply</button>
+        <button (click)='clear()'>Clear</button>
+      </td>
+    </tr>
+</table>
+<div *ngIf='showSum'>Sum: {{result}}</div>
+<div *ngIf='showProduct'>Product: {{result}}</div>

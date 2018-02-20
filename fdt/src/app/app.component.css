@@ -1,0 +1,40 @@
+button {
+    height: 22px;
+}
+
+#search {
+    float: right;
+}
+
+table tr th {
+    background-color: black;
+    color: #0BB;
+    padding: 5px;
+    height: 20px;
+}
+
+table tr:nth-child(even){
+    background-color: #CCC;
+}
+
+table tr:nth-child(odd){
+    background-color: #EEE;
+}
+
+table tr td {
+    height: 35px;
+}
+
+table tr:hover {
+    color: white;
+    background-color: #0BB;
+    cursor: pointer;
+}
+
+#addForm {
+    background-color: yellow;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
