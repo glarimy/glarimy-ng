@@ -1,0 +1,30 @@
+<h2>Add New Employee</h2>
+<table>
+  <tr>
+    <td>Name:</td>
+    <td>
+      <input [(ngModel)]='name' />
+    </td>
+    <td>{{nameError}}</td>
+  </tr>
+  <tr>
+    <td>Phone Number:</td>
+    <td>
+      <input [(ngModel)]='phone' />
+    </td>
+    <td>{{phoneError}}</td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td>
+      <input [(ngModel)]='email' />
+    </td>
+    <td>{{emailError}}</td>
+  </tr>
+  <tr>
+    <td colspan='3'>
+      <button (click)='add()'>Add Employee</button>
+      <button (click)='cancel()'>Cancel</button>
+    </td>
+  </tr>
+</table>

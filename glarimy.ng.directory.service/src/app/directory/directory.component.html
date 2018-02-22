@@ -1,0 +1,64 @@
+<h1>Employee Directory</h1>
+<hr/>
+<h2>Add New Employee</h2>
+<table>
+  <tr>
+    <td>Name:</td>
+    <td>
+      <input [(ngModel)]='name' />
+    </td>
+    <td>{{nameError}}</td>
+  </tr>
+  <tr>
+    <td>Phone Number:</td>
+    <td>
+      <input [(ngModel)]='phone'/>
+    </td>
+    <td>{{phoneError}}</td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td>
+      <input [(ngModel)]='email'/>
+    </td>
+    <td>{{emailError}}</td>
+  </tr>
+  <tr>
+    <td colspan='3'>
+      <button (click)='add()'>Add Employee</button>
+      <button (click)='cancel()'>Cancel</button>
+    </td>
+  </tr>
+</table>
+<h2>Employee List</h2>
+<table border='1'>
+  <tr><th>Name</th><th>Phone Number</th></tr>
+  <tr *ngFor='let e of directoryService.list()' (click)='details(e.name)'>
+    <td>{{e.name}}</td>
+    <td>{{e.phone}}</td>
+  </tr>
+</table>
+<h2>Employee Detail</h2>
+<table>
+  <tr>
+    <td>Name:</td>
+    <td>
+      {{result.name}}
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Phone Number:</td>
+    <td>
+       {{result.phone}}
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td>
+       {{result.email}}
+    </td>
+    <td></td>
+  </tr>
+</table>
