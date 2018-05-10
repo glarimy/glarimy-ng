@@ -1,0 +1,82 @@
+<h1>Online Library</h1>
+<button (click)='showAddForm()'>Add New Book</button>
+<hr/>
+<div id='details' *ngIf='showDetails'>
+  <h2>Book Details</h2>
+  <div>
+    <table>
+      <tr>
+        <td>ISBN:</td>
+        <td>
+          {{isbn}}
+        </td>
+      </tr>
+      <tr>
+        <td>Title:</td>
+        <td>
+          {{title}}
+        </td>
+      </tr>
+      <tr>
+        <td>Author:</td>
+        <td>
+          {{author}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div id='form' *ngIf='showForm'>
+  <h2>Add New Book</h2>
+  <table>
+    <tr>
+      <td colspan="2">
+        <span *ngIf='invalidISBN'>{{invalidISBNError}}</span>
+      </td>
+      <td>ISBN:</td>
+      <td>
+        <input [(ngModel)]='isbn' />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <span *ngIf='invalidTitle'>{{invalidTitleError}}</span>
+      </td>
+      <td>Title:</td>
+      <td>
+        <input [(ngModel)]='title' />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <span *ngIf='invalidAuthor'>{{invalidAuthorError}}</span>
+      </td>
+      <td>Author:</td>
+      <td>
+        <input [(ngModel)]='author' />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button (click)='add()'>Add Book</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<table id='list'>
+    <tr>
+      <th>#</th>
+      <th>ISBN</th>
+      <th>Title</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor='let book of books'>
+      <td></td>
+      <td>{{book.isbn}}</td>
+      <td>{{book.title}}</td>
+      <td>
+        <button (click)='view(book.isbn)'>View</button>
+        <button (click)='remove(book.isbn)'>Delete</button>
+      </td>
+    </tr>
+  </table>

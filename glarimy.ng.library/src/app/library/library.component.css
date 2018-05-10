@@ -1,0 +1,8 @@
+#list {
+    width: 50%;
+}
+
+table tr th{
+    background-color: black;
+    color: white;
+}
